@@ -1,0 +1,21 @@
+[toolchain]
+anchor_version = "1.0.0"
+solana_version = "3.0.0"
+
+[features]
+seeds     = false
+skip-lint = false
+
+[programs.devnet]
+# Replace with real ID after: anchor deploy --provider.cluster devnet
+shadowbridge_treasury = "TrsryXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+[programs.localnet]
+shadowbridge_treasury = "TrsryXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+[provider]
+cluster = "devnet"
+wallet  = "~/.config/solana/id.json"
+
+[scripts]
+test = "cargo test"

@@ -1,0 +1,23 @@
+[package]
+name        = "shadowbridge-treasury"
+version     = "0.1.0"
+edition     = "2024"
+description = "ShadowBridge dWallet treasury — powered by Ika 2PC-MPC"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name       = "shadowbridge_treasury"
+
+[features]
+cpi = []
+
+[dependencies]
+# Ika requires anchor-lang 1.0 (from official docs)
+anchor-lang = "1"
+
+# Ika dWallet pre-alpha SDK — actual crate names from the repo
+ika-dwallet-anchor = { git = "https://github.com/dwallet-labs/ika-pre-alpha" }
+ika-sdk-types      = { package = "ika-solana-sdk-types", git = "https://github.com/dwallet-labs/ika-pre-alpha" }
+
+[dev-dependencies]
+anchor-lang = "1"

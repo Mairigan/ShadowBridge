@@ -1,0 +1,27 @@
+[package]
+name        = "shadowbridge-lending"
+version     = "0.1.0"
+edition     = "2024"
+description = "ShadowBridge encrypted lending — powered by Encrypt FHE"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name       = "shadowbridge_lending"
+
+[features]
+cpi = []
+
+[dependencies]
+# Encrypt requires anchor-lang 0.32 (from official docs)
+anchor-lang = { version = "0.32", features = ["init-if-needed"] }
+anchor-spl  = "0.32"
+
+# Encrypt pre-alpha SDK — actual crate names from the repo
+encrypt-types  = { git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+encrypt-dsl    = { package = "encrypt-solana-dsl", git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+encrypt-anchor = { git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+
+[dev-dependencies]
+# Lightweight test harness — runs FHE graphs with a mock compute engine.
+# No SBF compilation needed for unit tests.
+encrypt-solana-test = { git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
